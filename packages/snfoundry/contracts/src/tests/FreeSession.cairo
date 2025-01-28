@@ -2,7 +2,7 @@ use contracts::interfaces::ILudo::{ILudoDispatcherTrait};
 use contracts::interfaces::IMarquisGame::{IMarquisGameDispatcher, IMarquisGameDispatcherTrait};
 use openzeppelin_token::erc20::interface::{IERC20Dispatcher, IERC20DispatcherTrait};
 use snforge_std::{CheatSpan, cheat_caller_address};
-use super::SetUp::{ETH_TOKEN_ADDRESS, PLAYER_0, PLAYER_1, PLAYER_2, PLAYER_3, ZERO_TOKEN};
+use super::SetUp::{ETH_TOKEN_ADDRESS, PLAYER_0, PLAYER_1, PLAYER_2, PLAYER_3};
 use super::SetUp::{deploy_ludo_contract, setup_game_new};
 
 #[test]

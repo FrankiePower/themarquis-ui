@@ -22,6 +22,18 @@ fn should_create_new_game_session(token: ContractAddress, amount: u256) {
 }
 
 #[test]
+fn should_create_new_free_game_session(token: ContractAddress, amount: u256) {
+    let ludo_contract = deploy_ludo_contract();
+    let token = Option::None;
+    let amount = Option::None;
+    let marquis_game_dispatcher = IMarquisGameDispatcher { contract_address: ludo_contract };
+    let required_players = 2;
+    let session_id = marquis_game_dispatcher.create_session(token, amount, required_players);
+    let expected_session_id = 1;
+    assert_eq!(session_id, expected_session_id);
+}
+
+#[test]
 fn should_create_new_game_session_with_eth_token_deposit() {
     // given a new game
     let eth_contract_address = ETH_TOKEN_ADDRESS();
