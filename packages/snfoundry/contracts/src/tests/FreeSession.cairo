@@ -9,11 +9,10 @@ use super::SetUp::{deploy_ludo_contract, setup_game_new};
 fn should_create_free_game_session() {
     let ludo_contract = deploy_ludo_contract();
     let marquis_game_dispatcher = IMarquisGameDispatcher { contract_address: ludo_contract };
-    let token = ZERO_TOKEN();
-    let amount = 0;
+    let token = Option::None;
+    let amount = Option::None;
     let required_players = 1;
-    let session_id = marquis_game_dispatcher
-        .create_session(Option::Some(token), Option::Some(amount), required_players);
+    let session_id = marquis_game_dispatcher.create_session(token, amount, required_players);
     let expected_session_id = 1;
     assert_eq!(session_id, expected_session_id);
 }
